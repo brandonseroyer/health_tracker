@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :find_exercise, except: [:new, :create, :index]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @exercises = Exercise.all.order(created_at: :desc)

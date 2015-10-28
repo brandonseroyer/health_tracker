@@ -1,10 +1,10 @@
 class FoodsController < ApplicationController
   before_action :find_food, except: [:new, :create, :index]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
-    @foods = Food.all.order(created_at: :desc)
-    @exercises = Exercise.all
+    @foods = current_user.foods.all.order(created_at: :desc)
+    @exercises = current_user.exercises.all
   end
 
   def show
