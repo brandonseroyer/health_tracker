@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "foods#index"
+  root to: 'foods#index'
 
-  resources :foods
-  resources :exercises
+    resources :foods 
+    resources :exercises
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

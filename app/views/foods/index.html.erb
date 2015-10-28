@@ -1,0 +1,39 @@
+
+<div>
+<table border="1" style="width:25%">
+  <caption>Food</caption>
+  <tr>
+    <th><center>Name</center></th>
+    <th><center>Calories</center></th>
+  </tr>
+
+  <% @foods.each do |food| %>
+  <tr>
+    <td><center><%= food.name %></center></td>
+    <td><center><%= food.calories %></center></td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<p><%= link_to "New Food", new_food_path %></p>
+
+  <p><%= @food.calorie_total %></p>
+
+<div>
+  <table border="1" style="width:25%">
+    <caption>Exercise</caption>
+    <tr>
+      <th><center>Activity</center></th>
+      <th><center>Calories</center></th>
+    </tr>
+
+    <% @exercises.each do |exercise| %>
+    <tr>
+      <td><center><%= exercise.activity %></center></td>
+      <td><center><%= exercise.calories %></center></td>
+    </tr>
+    <% end %>
+  </table>
+  <br>
+  <p><%= link_to "New Activity", new_exercise_path %></p>
+</div>

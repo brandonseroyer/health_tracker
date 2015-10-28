@@ -7,12 +7,6 @@ class ExercisesController < ApplicationController
 
   end
 
-  def show
-    @exercise = Exercise.find(params[:id])
-
-    render :show
-  end
-
   def new
     @exercise = Exercise.new
 
@@ -21,7 +15,7 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to  exercises_path
+      redirect_to  foods_path
     else
       render :new
     end
