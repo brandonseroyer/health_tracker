@@ -26,27 +26,10 @@
 
 <p><b>Calories Consumed:</b> <%= @foods.calorie_total %></p>
 
-<div>
-  <table border="1" style="width:25%">
-    <caption>Exercise</caption>
-    <tr>
-      <th><center>Activity</center></th>
-      <th><center>Calories</center></th>
-    </tr>
+<div id="exercises-list">
+  <%= render 'exercises/exercises_list', exercises: @exercises %>
+</div>
 
-    <% @exercises.each do |exercise| %>
-    <tr>
-      <td><center>
-      <%= exercise.activity %>
-      <%= link_to 'Edit', edit_exercise_path(exercise) %>
-      <%= link_to "Delete", exercise_path(exercise),
-      :data => {:confirm => "Are you sure?",
-        :method => "delete"} %>
-      </center></td>
-      <td><center><%= exercise.calories %></center></td>
-    </tr>
-    <% end %>
-  </table>
   <br>
   <%= form_for (Exercise.new) do |f| %>
 
