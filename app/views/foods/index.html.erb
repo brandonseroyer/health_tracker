@@ -1,52 +1,30 @@
-<%= form_tag foods_path, :method => 'get', :id => "search" do %>
+<%= form_tag foods_path, :method => 'get', :id => "search", remote: true do %>
 <p>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search", :name => nil %>
 </p>
 <% end %>
 
-<div>
-  <table border="1" style="width:25%">
-    <caption>Food</caption>
-    <tr>
-      <th><center>Name</center></th>
-      <th><center>Calories</center></th>
-    </tr>
+<div id="food-list">
+  <%= render 'foods_list', foods: @foods %>
+</div>
 
-    <% @foods.each do |food| %>
-    <tr>
-      <td><center>
-        <%= food.name %>
-        <%= link_to 'Edit', edit_food_path(food) %>
-        <%= link_to "Delete", food_path(food),
-        :data => {:confirm => "Are you sure?",
-          :method => "delete"} %>
-      </center></td>
-      <td><center><%= food.calories %></center></td>
-    </tr>
-    <% end %>
-  </table>
-  <br>
+<br>
 
-  <%= form_for (Food.new) do |f| %>
-
-
+<%= form_for (Food.new) do |f| %>
   <div class='form-group'>
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control", required: 'required' %>
     <%= f.label :calories %>
     <%= f.text_field :calories, class: "form-control", required: 'required' %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-
   </div>
-
   <div class='form-group'>
     <%= f.submit class: 'btn btn-success' %>
   </div>
-  <% end %>
+<% end %>
 
-  <p><b>Calories Consumed:</b> <%= @foods.calorie_total %></p>
-</div>
+<p><b>Calories Consumed:</b> <%= @foods.calorie_total %></p>
 
 <div>
   <table border="1" style="width:25%">

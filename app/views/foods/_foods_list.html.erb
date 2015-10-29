@@ -1,0 +1,25 @@
+<table border="1" style="width:25%">
+  <caption>Food</caption>
+  <tr>
+    <th><center>Name</center></th>
+    <th><center>Calories</center></th>
+  </tr>
+  <% foods.each do |food| %>
+    <tr>
+      <td>
+        <center>
+          <%= food.name %>
+          <%= link_to 'Edit', edit_food_path(food) %>
+          <%= link_to "Delete", food_path(food),
+          :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+        </center>
+      </td>
+      <td>
+        <center>
+          <%= food.calories %>
+        </center>
+      </td>
+    </tr>
+  <% end %>
+</table>

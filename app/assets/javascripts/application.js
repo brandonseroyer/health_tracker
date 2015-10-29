@@ -4,8 +4,8 @@
 //= require_tree .
 
 $(function() {
-  $("#search").submit(function() {
-    $.get(this.action, $(this).serialize(), null, "script");
+  $("#search input").keyup(function() {
+    $.get($("#search").attr("action"), $("#search").serialize(), null, "script");
     return false;
   });
 });
