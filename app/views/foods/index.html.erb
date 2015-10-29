@@ -1,3 +1,10 @@
+<%= form_tag foods_path, :method => 'get' do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
+
 <div>
   <table border="1" style="width:25%">
     <caption>Food</caption>

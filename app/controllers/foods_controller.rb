@@ -3,8 +3,8 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @foods = current_user.foods.all.order(created_at: :desc)
-    @exercises = current_user.exercises.all
+    @foods = current_user.foods.all.search(params[:search])
+    @exercises = current_user.exercises.all.search(params[:search])
   end
 
   def show

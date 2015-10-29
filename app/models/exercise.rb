@@ -11,4 +11,12 @@ class Exercise < ActiveRecord::Base
     end
     return sum
   end
+
+  def self.search(search)
+    if search
+      where('activity LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end

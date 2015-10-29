@@ -11,4 +11,12 @@ class Food < ActiveRecord::Base
     end
     return sum
   end
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end
