@@ -26,13 +26,12 @@
       <%= link_to 'Sign in', new_user_session_path, id:'text-color', class: "navbar-brand"  %>
       <%= link_to 'Sign up', new_user_registration_path, id:'text-color', class: "navbar-brand"  %>
       <% else %>
-      <%= link_to 'New Post', new_food_path, id:'text-color', class: "navbar-brand" %>
       <%= link_to current_user.email, edit_user_registration_path, id:'text-color', class: "navbar-brand"  %>
       <%= link_to 'Log out',  destroy_user_session_path, method: 'delete', id:'text-color', class: "navbar-brand"  %>
       <% end %>
   </p>
     </ul>
-      
+
 </div>
 </nav>
 
