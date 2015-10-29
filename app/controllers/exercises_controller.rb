@@ -30,7 +30,7 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
 
     if @exercise.update(exercise_params)
-      redirect_to exercise_path(@exercise)
+      redirect_to foods_path
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ExercisesController < ApplicationController
   def destroy
     @exercise = Exercise.find(params[:id])
     @exercise.destroy
-    redirect_to exercises_path
+    redirect_to foods_path
   end
 
   private

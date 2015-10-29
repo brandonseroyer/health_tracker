@@ -36,7 +36,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
 
     if @food.update(food_params)
-      redirect_to food_path(@food)
+      redirect_to foods_path
     else
       render :edit
     end

@@ -8,7 +8,9 @@
 
     <% @foods.each do |food| %>
     <tr>
-      <td><center><%= food.name %></center></td>
+      <td><center><%= food.name %> <%= link_to 'Edit', edit_food_path(food) %> <%= link_to "Delete", food_path(food),
+      :data => {:confirm => "Are you sure?",
+        :method => "delete"} %></center></td>
       <td><center><%= food.calories %></center></td>
     </tr>
     <% end %>
@@ -45,7 +47,9 @@
 
     <% @exercises.each do |exercise| %>
     <tr>
-      <td><center><%= exercise.activity %></center></td>
+      <td><center><%= exercise.activity %> <%= link_to 'Edit', edit_exercise_path(exercise) %> <%= link_to "Delete", exercise_path(exercise),
+      :data => {:confirm => "Are you sure?",
+        :method => "delete"} %></center></td>
       <td><center><%= exercise.calories %></center></td>
     </tr>
     <% end %>
