@@ -7,12 +7,6 @@ class FoodsController < ApplicationController
     @exercises = current_user.exercises.all.search(params[:search])
   end
 
-  def show
-    @food = Food.find(params[:id])
-
-    render :show
-  end
-
   def new
     @food = Food.new
 

@@ -1,6 +1,5 @@
 class Food < ActiveRecord::Base
-  belongs_to :users
-
+  belongs_to :user
   validates :name, presence: true
   validates :calories, presence: true
 

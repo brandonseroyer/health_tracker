@@ -1,6 +1,5 @@
 class Exercise < ActiveRecord::Base
-  belongs_to :users
-
+  belongs_to :user
   validates :activity, presence: true
   validates :calories, presence: true
 

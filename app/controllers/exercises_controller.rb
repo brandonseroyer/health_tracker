@@ -12,12 +12,6 @@ class ExercisesController < ApplicationController
 
   end
 
-  def show
-    @exercise = Exercise.find(params[:id])
-
-    render :show
-  end
-
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save

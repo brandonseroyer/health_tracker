@@ -1,17 +1,15 @@
-<%= form_tag foods_path, :method => 'get', :id => "search", remote: true do %>
-<p>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil %>
-</p>
-<% end %>
-
-<div id="food-list">
-  <%= render 'foods_list', foods: @foods %>
-</div>
-
-<br>
-
-<%= form_for (Food.new) do |f| %>
+<div>
+  <%= form_tag foods_path, :method => 'get', :id => "search", remote: true do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+  <div id="food-list">
+    <%= render 'foods_list', foods: @foods %>
+  </div>
+  <br>
+  <%= form_for (Food.new) do |f| %>
   <div class='form-group'>
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control", required: 'required' %>
@@ -22,29 +20,28 @@
   <div class='form-group'>
     <%= f.submit class: 'btn btn-success' %>
   </div>
-<% end %>
-
-<p><b>Calories Consumed:</b> <%= @foods.calorie_total %></p>
-
-<div id="exercises-list">
-  <%= render 'exercises/exercises_list', exercises: @exercises %>
-</div>
-
+  <% end %>
+  <p>
+    <b>Calories Consumed:</b> <%= @foods.calorie_total %>
+  </p>
+  <div id="exercises-list">
+    <%= render 'exercises/exercises_list', exercises: @exercises %>
+  </div>
   <br>
   <%= form_for (Exercise.new) do |f| %>
-
   <div class='form-group'>
     <%= f.label :activity %>
     <%= f.text_field :activity, class: "form-control", required: 'required' %>
     <%= f.label :calories %>
     <%= f.text_field :calories, class: "form-control", required: 'required' %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-
   </div>
-
   <div class='form-group'>
     <%= f.submit class: 'btn btn-success' %>
   </div>
   <% end %>
-
-  <p><b>Calories Burned:</b> <%= @exercises.calorie_total %></p>
+  <p>
+    <b>Calories Burned:</b> <%= @exercises.calorie_total %>
+  </p>
+  <h2>Daily Calorie Balance: <%= @foods.calorie_total - @exercises.calorie_total %></h2>
+</div>
