@@ -4,12 +4,10 @@ class ExercisesController < ApplicationController
 
   def index
     @exercises = Exercise.all.order(created_at: :desc)
-
   end
 
   def new
     @exercise = Exercise.new
-
   end
 
   def create
@@ -43,6 +41,7 @@ class ExercisesController < ApplicationController
   end
 
   private
+  
   def exercise_params
     params.require(:exercise).permit(:activity, :calories, :user_id)
   end
